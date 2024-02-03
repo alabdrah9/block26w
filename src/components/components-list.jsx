@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect } from "react";
 import { useState } from "react";
 import ContactRow from "./ContactRow";
 
@@ -9,9 +9,8 @@ const dummyContacts = [
 ];
 
 export default function ContactList({ setSelectedContactId }) {
-const [contacts, setContacts] = useState(dummyContacts);
-// ContactList setSelectedContactId={setSelectedContactId} 
-
+  const [contacts, setContacts] = useState(dummyContacts);
+  // ContactList setSelectedContactId={setSelectedContactId}
 
   useEffect(() => {
     async function fetchContacts() {
@@ -27,9 +26,7 @@ const [contacts, setContacts] = useState(dummyContacts);
     }
     fetchContacts();
   }, []);
-  console.log("contact")
-
-  
+  console.table(contacts);
 
   return (
     <table>
@@ -40,18 +37,18 @@ const [contacts, setContacts] = useState(dummyContacts);
       </thead>
       <tbody>
         <tr>
-          <p onClick={()=> setSelectedContactId(setContacts.id)} key={contacts.id}></p>
+          <p
+            onClick={() => setSelectedContactId(setContacts.id)}
+            key={contacts.id}
+          ></p>
           <td>Name</td>
           <td>Email</td>
           <td>Phone</td>
         </tr>
         {contacts.map((contact) => {
-          return <ContactRow key={contact.id} contact={contact} />;
+          return <ContactRow key={contact.id} contact={contact} setSelectedContactId={setSelectedContactId} />;
         })}
-
       </tbody>
     </table>
   );
 }
-
-

@@ -21,7 +21,7 @@ console.table("contacts")
     {selectedContactId ? (
       <div>Selected Contact View</div>
     ) : (
-      <ContactList />
+      <ContactList setSelectedContactId={setSelectedContactId}/>
     )}
   </>
 
