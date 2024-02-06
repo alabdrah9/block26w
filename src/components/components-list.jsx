@@ -26,7 +26,7 @@ export default function ContactList({ setSelectedContactId }) {
     }
     fetchContacts();
   }, []);
-  console.table(contacts);
+  console.log(contacts);
 
   return (
     <table>
